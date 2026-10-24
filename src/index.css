@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { min-height: 100%; }
+body { margin: 0; font-family: Poppins, system-ui, sans-serif; color: #fff4e8; background: #1a0b2e; overflow-x: hidden; }
+.bg-aurora { background: linear-gradient(135deg, #1a0b2e, #3b1466 40%, #7a2a78 70%, #e8709f); background-size: 300% 300%; animation: aurora 18s ease infinite; }
+@keyframes aurora { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+.glass { background: rgba(255,255,255,.1); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.22); box-shadow: 0 10px 40px rgba(20,0,40,.35); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .85rem 1.6rem; border-radius: 999px; font-weight: 500; color: #2d1450; background: linear-gradient(135deg, #ffd6e7, #e8b4a0, #c9b6f2); box-shadow: 0 0 24px rgba(249,168,201,.55); transition: transform .2s, box-shadow .2s; cursor: pointer; border: 0; text-align: center; }
+.btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 0 38px rgba(249,168,201,.9); }
+.btn-ghost { background: rgba(255,255,255,.12); color: #fff4e8; box-shadow: none; border: 1px solid rgba(255,255,255,.3); }
+.script { font-family: "Great Vibes", cursive; }
+:focus-visible { outline: 3px solid #ffd6e7; outline-offset: 3px; border-radius: 12px; }
+.flame { animation: flicker .25s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+@keyframes flicker { from { transform: scale(1) rotate(-3deg); } to { transform: scale(1.12, .92) rotate(3deg); } }
+.floaty { animation: floaty 5s ease-in-out infinite; }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.flip { perspective: 1000px; }
+.flip-inner { position: relative; transition: transform .7s; transform-style: preserve-3d; }
+.flip-inner.on { transform: rotateY(180deg); }
+.face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.back { transform: rotateY(180deg); }
+.paper { background: #fff4e8 linear-gradient(#fff4e8, #fbe3d0); color: #4a2a3a; box-shadow: 0 20px 60px rgba(0,0,0,.45); background-image: repeating-linear-gradient(transparent 0 33px, rgba(200,140,150,.25) 33px 34px); }
+.masonry { column-gap: 1rem; columns: 2; }
+@media (min-width: 768px) { .masonry { columns: 3; } }
+.masonry > * { break-inside: avoid; margin-bottom: 1rem; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { -webkit-tap-highlight-color: transparent; }
+.min-h-dvh { min-height: 100vh; min-height: 100dvh; }
+.safe-b { padding-bottom: max(.75rem, env(safe-area-inset-bottom)); }
+.safe-t { padding-top: max(.75rem, env(safe-area-inset-top)); }
+.shimmer { background: linear-gradient(90deg, #ffd6e7, #fff4e8, #c9b6f2, #f9a8c9, #ffd6e7); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 6s linear infinite; filter: drop-shadow(0 0 18px rgba(249,168,201,.55)); }
+@keyframes shimmer { to { background-position: -250% 0; } }
+.orb { position: absolute; border-radius: 9999px; filter: blur(60px); opacity: .45; animation: drift 20s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate(40px, -60px) scale(1.2); } }
+.star { position: absolute; width: 3px; height: 3px; border-radius: 9999px; background: #fff; animation: twinkle 3s ease-in-out infinite; }
+@keyframes twinkle { 0%,100% { opacity: .15; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.5); } }
+.glass { border-radius: 1.5rem; }
+.btn { max-width: 100%; -webkit-user-select: none; user-select: none; touch-action: manipulation; }
+@media (max-width: 480px) { .btn { padding: .8rem 1.2rem; font-size: .95rem; } }
+button, a { touch-action: manipulation; }
